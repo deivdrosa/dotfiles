@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# salva workspace atual
+prev=$(hyprctl activeworkspace -j | jq -r '.name')
+
+# abre special workspace
+hyprctl dispatch togglespecialworkspace launcher
+
+# abre fuzzel
+fuzzel
+
+# quando fechar, volta pro workspace anterior
+hyprctl dispatch workspace "$prev"

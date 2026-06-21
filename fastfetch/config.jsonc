@@ -1,0 +1,33 @@
+{
+  "logo": {
+    "type": "auto",
+    "padding": {
+      "top": 1,
+      "left": 2
+    }
+  },
+
+  "display": {
+    "separator": "  "
+  },
+
+  "modules": [
+    "title",
+    "os",
+    "kernel",
+    "uptime",
+    "packages",
+    "shell",
+    "terminal",
+    "cpu",
+    "gpu",
+    "memory"
+  ],
+
+  "colors": {
+    "title": "#ED445F",
+    "separator": "#8a8a8a",
+    "keys": "#ff6b86",
+    "values": "#ffffff"
+  }
+}

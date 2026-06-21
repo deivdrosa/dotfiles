@@ -1,0 +1,10 @@
+yay
+spotify
+spicetify-cli
+eww-git
+vesktop
+emote
+pipes.sh
+hollywood
+catppuccin-gtk-theme-mocha
+nwg-look

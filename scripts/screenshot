@@ -1,0 +1,40 @@
+#!/bin/bash
+
+DIR="$HOME/Pictures"
+FILE="$DIR/ss-$(date +%s).png"
+
+mkdir -p "$DIR"
+
+shot_sound() {
+  paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga 2>/dev/null &
+}
+
+notify() {
+  # FORÇA DBUS DO USER SESSION (JEITO CORRETO)
+  export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus"
+  notify-send "Screenshot Saved"
+}
+
+case "$1" in
+
+  normal)
+    shot_sound
+    grim -g "$(slurp)" "$FILE"
+    wl-copy < "$FILE"
+    notify
+    ;;
+
+  clip)
+    shot_sound
+    grim -g "$(slurp)" "$FILE"
+    wl-copy < "$FILE"
+    notify
+    ;;
+
+  editor)
+    shot_sound
+    grim -g "$(slurp)" - | swappy -f -
+    notify
+    ;;
+
+esac

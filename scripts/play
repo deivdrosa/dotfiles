@@ -1,0 +1,51 @@
+#!/bin/bash
+
+QUERY="$*"
+
+RAW_TITLE=$(yt-dlp "ytsearch1:$QUERY" --print "%(title)s" 2>/dev/null | head -n 1)
+
+TRACK=$(echo "$RAW_TITLE" \
+  | sed 's/(.*)//g' \
+  | sed 's/\[.*\]//g' \
+  | sed 's/Official.*//I' \
+  | sed 's/Music Video.*//I' \
+  | cut -d '-' -f1 \
+  | xargs)
+
+URL=$(yt-dlp "ytsearch1:$QUERY" -f bestaudio -g 2>/dev/null | head -n 1)
+
+if [ -z "$URL" ]; then
+  echo "❌ nada encontrado"
+  exit 1
+fi
+
+mpv "$URL" \
+  --no-video \
+  --audio-display=no \
+  --really-quiet &
+
+MPV_PID=$!
+
+(
+  tput civis 2>/dev/null
+
+  while kill -0 $MPV_PID 2>/dev/null; do
+
+    tput sc
+    tput cup 0 0
+    tput el
+
+    printf "▶ NOW PLAYING :: %s" "$TRACK"
+
+    tput rc
+
+    sleep 1
+  done
+
+  tput sc
+  tput cup 0 0
+  tput el
+  tput rc
+
+  tput cnorm 2>/dev/null
+) &

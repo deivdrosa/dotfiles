@@ -1,0 +1,78 @@
+* {
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+/* ===================== */
+/* BAR */
+/* ===================== */
+
+window#waybar {
+  background: rgba(0, 0, 0, 0.25);
+  border-bottom: 2px solid rgba(235, 155, 180, 0.7);
+
+  min-height: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* ===================== */
+/* WORKSPACES */
+/* ===================== */
+
+#workspaces button {
+  color: rgba(210, 210, 210, 0.9);
+  padding: 6px 10px;
+}
+
+#workspaces button.active {
+  color: rgba(235, 155, 180, 1);
+  border-bottom: 2px solid rgba(235, 155, 180, 0.9);
+}
+
+/* ===================== */
+/* LEFT BLOCK (CPU/GPU/TEMP/RAM) */
+/* ===================== */
+
+#custom-weather,
+#custom-cpu,
+#custom-gpu,
+#custom-ram {
+  color: rgba(235, 235, 235, 0.85);
+  padding: 6px 10px;
+}
+
+/* ===================== */
+/* CENTER MUSIC (MANTIDO COMO ESTÁ) */
+/* ===================== */
+
+#custom-music,
+#custom-music_prev,
+#custom-music_play,
+#custom-music_next {
+  color: rgba(188, 190, 196, 0.8);
+}
+
+/* botões */
+#custom-music_prev,
+#custom-music_play,
+#custom-music_next {
+  padding: 4px 6px;
+  font-weight: 600;
+}
+
+/* hover leve */
+#custom-music_prev:hover,
+#custom-music_play:hover,
+#custom-music_next:hover {
+  opacity: 0.7;
+}
+
+/* ===================== */
+/* RIGHT BLOCK (DATA / CLOCK) */
+/* ===================== */
+
+#custom-date,
+#clock {
+  color: rgba(235, 235, 235, 0.85);
+  padding: 6px 10px;
+}

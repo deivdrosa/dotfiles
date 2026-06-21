@@ -1,0 +1,8 @@
+#!/bin/bash
+
+QUERY="$*"
+
+clear
+
+mpv --quiet --no-terminal \
+    "ytdl://ytsearch1:$QUERY"

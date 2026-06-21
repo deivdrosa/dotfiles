@@ -1,0 +1,84 @@
+{
+  "layer": "top",
+  "position": "top",
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/weather",
+    "custom/cpu",
+    "custom/gpu",
+    "custom/ram"
+  ],
+
+  "modules-center": [
+    "custom/music_prev",
+    "custom/music_play",
+    "custom/music_next",
+    "custom/music"
+  ],
+
+  "modules-right": [
+    "custom/date",
+    "clock"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "active-only": false
+  },
+
+  "custom/weather": {
+    "exec": "echo -n 'Palhoça '; curl -s 'wttr.in/Palhoca?format=%t' | tr -d '+'",
+    "interval": 1800
+  },
+
+  "custom/cpu": {
+    "exec": "grep 'cpu ' /proc/stat | awk '{u=($2+$4)*100/($2+$3+$4+$5)} END {printf \"%.0f%%\", u}'",
+    "interval": 2,
+    "format": "CPU {}"
+  },
+
+  "custom/gpu": {
+    "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader",
+    "interval": 5,
+    "format": "GPU {}°C"
+  },
+
+  "custom/ram": {
+    "exec": "free -m | awk '/Mem:/ {printf \"%.0f%%\", $3/$2 * 100}'",
+    "interval": 2,
+    "format": "RAM {}"
+  },
+
+  "custom/music": {
+    "exec": "playerctl metadata --format '{{title}} - {{artist}}' 2>/dev/null",
+    "interval": 2,
+    "format": "{}"
+  },
+
+  "custom/music_prev": {
+    "format": "‹",
+    "on-click": "playerctl previous"
+  },
+
+  "custom/music_play": {
+    "exec": "bash -c 'status=$(playerctl status 2>/dev/null); if [ \"$status\" = \"Playing\" ]; then echo \"⏸\"; else echo \"▶\"; fi'",
+    "interval": 1,
+    "on-click": "playerctl play-pause"
+  },
+
+  "custom/music_next": {
+    "format": "›",
+    "on-click": "playerctl next"
+  },
+
+  "custom/date": {
+    "exec": "date '+%d/%m/%Y'",
+    "interval": 60,
+    "format": "{}"
+  },
+
+  "clock": {
+    "format": "{:%H:%M}"
+  }
+}
