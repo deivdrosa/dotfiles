@@ -3,6 +3,27 @@
 }
 
 /* ===================== */
+/* TRANSIÇÃO (APENAS INTERATIVOS) */
+/* ===================== */
+
+#custom-music_prev,
+#custom-music_play,
+#custom-music_next,
+#pulseaudio {
+  transition: all 0.15s ease;
+}
+
+/* hover dos controles */
+#custom-music_prev:hover,
+#custom-music_play:hover,
+#custom-music_next:hover,
+#pulseaudio:hover {
+  opacity: 0.75;
+  background: rgba(235, 155, 180, 0.08);
+  border-radius: 6px;
+}
+
+/* ===================== */
 /* BAR */
 /* ===================== */
 
@@ -10,9 +31,30 @@ window#waybar {
   background: rgba(0, 0, 0, 0.25);
   border-bottom: 2px solid rgba(235, 155, 180, 0.7);
 
-  min-height: 50px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  /* FIX DO WARNING DE HEIGHT */
+  min-height: 48px;
+  padding: 4px 10px;
+}
+
+/* ===================== */
+/* BASE MODULE STYLE */
+/* ===================== */
+
+#workspaces,
+#custom-cpu,
+#custom-gpu,
+#custom-ram,
+#custom-music,
+#custom-music_prev,
+#custom-music_play,
+#custom-music_next,
+#pulseaudio,
+#custom-weather,
+#custom-date,
+#clock {
+  padding: 4px 8px;
+  margin: 0 3px;
+  border-radius: 8px;
 }
 
 /* ===================== */
@@ -21,7 +63,8 @@ window#waybar {
 
 #workspaces button {
   color: rgba(210, 210, 210, 0.9);
-  padding: 6px 10px;
+  padding: 5px 8px;
+  border-radius: 6px;
 }
 
 #workspaces button.active {
@@ -30,49 +73,60 @@ window#waybar {
 }
 
 /* ===================== */
-/* LEFT BLOCK (CPU/GPU/TEMP/RAM) */
+/* SYSTEM INFO */
 /* ===================== */
 
-#custom-weather,
 #custom-cpu,
 #custom-gpu,
 #custom-ram {
   color: rgba(235, 235, 235, 0.85);
-  padding: 6px 10px;
 }
 
 /* ===================== */
-/* CENTER MUSIC (MANTIDO COMO ESTÁ) */
+/* MUSIC + CONTROLS */
 /* ===================== */
 
-#custom-music,
-#custom-music_prev,
-#custom-music_play,
-#custom-music_next {
-  color: rgba(188, 190, 196, 0.8);
-}
-
-/* botões */
-#custom-music_prev,
-#custom-music_play,
-#custom-music_next {
+#custom-music {
+  color: rgba(188, 190, 196, 0.85);
   padding: 4px 6px;
+}
+
+/* controles */
+#custom-music_prev,
+#custom-music_play,
+#custom-music_next {
+  color: rgba(235, 155, 180, 0.9);
   font-weight: 600;
-}
-
-/* hover leve */
-#custom-music_prev:hover,
-#custom-music_play:hover,
-#custom-music_next:hover {
-  opacity: 0.7;
+  padding: 2px 4px;
+  margin: 0 1px;
+  min-width: 0;
 }
 
 /* ===================== */
-/* RIGHT BLOCK (DATA / CLOCK) */
+/* VOLUME */
 /* ===================== */
 
+#pulseaudio {
+  color: rgba(188, 190, 196, 0.85);
+  margin-left: 4px;
+  padding: 4px 6px;
+}
+
+/* ===================== */
+/* RIGHT SIDE */
+/* ===================== */
+
+#custom-weather,
 #custom-date,
 #clock {
   color: rgba(235, 235, 235, 0.85);
-  padding: 6px 10px;
+}
+
+
+window#waybar {
+    transition: all 0.25s ease;
+}
+
+window#waybar.focus {
+    opacity: 0;
 }
