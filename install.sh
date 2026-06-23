@@ -1,54 +1,81 @@
 #!/bin/bash
 
-DIR="$(cd "$(dirname "$0")" && pwd)"
+set -e
 
-echo "============================"
-echo "Instalando pacotes pacman"
-echo "============================"
+echo "🚀 Iniciando setup do dotfiles..."
 
-sudo pacman -S --needed $(cat "$DIR/pkglist/pacman.txt")
-sudo pacman -S --needed swww
-echo "============================"
-echo "Verificando yay"
-echo "============================"
+# ----------------------------
+# PACOTES BASE (Arch)
+# ----------------------------
+echo "📦 Instalando pacotes..."
 
-if ! command -v yay &> /dev/null; then
-    echo "yay não encontrado, instalando..."
+sudo pacman -S --needed \
+hyprland waybar kitty rofi \
+wl-clipboard cliphist \
+xdg-desktop-portal-hyprland \
+git base-devel
 
-    sudo pacman -S --needed git base-devel
-
-    cd ~
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
-    makepkg -si --noconfirm
-fi
-
-echo "============================"
-echo "Instalando AUR"
-echo "============================"
-
-sudo pacman -S --needed awww
-mkdir -p ~/Pictures/wallpapers
-cp -r "$DIR/wallpapers" ~/Pictures/
-mkdir -p ~/Pictures/wallpapers
-cp "$DIR/awww/wallpaper.sh" ~/Pictures/wallpapers/
-chmod +x ~/Pictures/wallpapers/wallpaper.sh
-yay -S --needed $(cat "$DIR/pkglist/aur.txt")
-
-echo "============================"
-echo "Copiando configs"
-echo "============================"
-
-mkdir -p ~/.local/bin
-cp "$DIR/scripts/"* ~/.local/bin/
-chmod +x ~/.local/bin/*
-
-cp "$DIR/zshrc" ~/.zshrc
+# ----------------------------
+# DIRETÓRIOS USUÁRIO
+# ----------------------------
+echo "📁 Criando diretórios..."
 
 mkdir -p ~/.config
-cp -r "$DIR/fastfetch" ~/.config/
-cp -r "$DIR/kitty" ~/.config/
+mkdir -p ~/.local/bin
 
-echo "============================"
-echo "Concluído com sucesso"
-echo "============================"
+# ----------------------------
+# HYPRLAND
+# ----------------------------
+echo "⚙️ Instalando Hyprland config..."
+
+cp -r ./hypr ~/.config/ 2>/dev/null || true
+
+# ----------------------------
+# WAYBAR
+# ----------------------------
+echo "⚙️ Instalando Waybar..."
+
+cp -r ./waybar ~/.config/ 2>/dev/null || true
+
+# ----------------------------
+# KITTy / ALACRITTY
+# ----------------------------
+echo "⚙️ Terminais..."
+
+cp -r ./kitty ~/.config/ 2>/dev/null || true
+cp -r ./alacritty ~/.config/ 2>/dev/null || true
+
+# ----------------------------
+# SCRIPTS
+# ----------------------------
+echo "🧠 Instalando scripts..."
+
+cp -r ./scripts/* ~/.local/bin/ 2>/dev/null || true
+chmod +x ~/.local/bin/* 2>/dev/null || true
+
+# ----------------------------
+# SHELL CONFIG
+# ----------------------------
+echo "🐚 Shell config..."
+
+cp .bashrc ~ 2>/dev/null || true
+cp .zshrc ~ 2>/dev/null || true
+
+# ----------------------------
+# CLIPBOARD FIX (teu caso Hyprland)
+# ----------------------------
+echo "📋 Clipboard setup..."
+
+mkdir -p ~/.config/hypr
+
+grep -qxF 'exec-once = wl-paste --type text --watch cliphist store' ~/.config/hypr/hyprland.conf || \
+echo 'exec-once = wl-paste --type text --watch cliphist store' >> ~/.config/hypr/hyprland.conf
+
+grep -qxF 'exec-once = wl-paste --type image --watch cliphist store' ~/.config/hypr/hyprland.conf || \
+echo 'exec-once = wl-paste --type image --watch cliphist store' >> ~/.config/hypr/hyprland.conf
+
+# ----------------------------
+# FINAL
+# ----------------------------
+echo "✅ Setup finalizado!"
+echo "🔁 Reinicia a sessão Hyprland para aplicar tudo"
