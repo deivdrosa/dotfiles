@@ -60,10 +60,3 @@ if [[ $- == *i* ]]; then
     hyfetch
 fi
 export PATH="$HOME/.local/bin:$PATH"
-alias hx='helix'
-
-ai() {
-  ollama run qwen2.5-coder "$@"
-}
-export TMPDIR=~/pip-tmp
-export PATH="$HOME/.local/bin:$PATH"
