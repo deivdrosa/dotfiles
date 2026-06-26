@@ -68,6 +68,7 @@ linux-firmware
 linux-headers
 linux-zen
 linux-zen-headers
+lua-lpeg
 macchina
 mako
 matugen

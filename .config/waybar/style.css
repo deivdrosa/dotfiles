@@ -3,19 +3,23 @@
 }
 
 /* ===================== */
-/* BAR */
+/* WAYBAR BASE */
 /* ===================== */
 
 window#waybar {
-  background: rgba(0, 0, 0, 0.25);
-  border-bottom: 2px solid rgba(235, 155, 180, 0.7);
+  background: rgba(30, 31, 37, 0.65);
+  border-bottom: 3px solid rgba(255, 170, 200, 0.8);
 
-  min-height: 48px;
-  padding: 4px 10px;
+  min-height: 40px;
+
+  /* FIX: espaço direito maior (Bluetooth não encosta) */
+  padding: 2px 15px 2px 6px;
+
+  transition: all 0.25s ease;
 }
 
 /* ===================== */
-/* BASE MODULE STYLE */
+/* MODULE BASE */
 /* ===================== */
 
 #workspaces,
@@ -29,10 +33,15 @@ window#waybar {
 #pulseaudio,
 #custom-weather,
 #custom-date,
-#clock {
-  padding: 4px 8px;
-  margin: 0 3px;
+#clock,
+#custom-bluetooth {
+  padding: 2px 6px;
+  margin: 0 2px;
   border-radius: 8px;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 /* ===================== */
@@ -40,14 +49,14 @@ window#waybar {
 /* ===================== */
 
 #workspaces button {
-  color: rgba(210, 210, 210, 0.9);
-  padding: 5px 8px;
+  color: rgba(220, 220, 220, 0.85);
+  padding: 3px 6px;
   border-radius: 6px;
 }
 
 #workspaces button.active {
-  color: rgba(235, 155, 180, 1);
-  border-bottom: 2px solid rgba(235, 155, 180, 0.9);
+  color: rgba(255, 170, 200, 1);
+  border-bottom: 2px solid rgba(255, 170, 200, 0.75);
 }
 
 /* ===================== */
@@ -57,26 +66,23 @@ window#waybar {
 #custom-cpu,
 #custom-gpu,
 #custom-ram {
-  color: rgba(235, 235, 235, 0.85);
+  color: rgba(200, 200, 210, 0.70);
+  font-weight: 500;
 }
 
 /* ===================== */
-/* MUSIC + CONTROLS */
+/* MUSIC */
 /* ===================== */
 
 #custom-music {
-  color: rgba(188, 190, 196, 0.85);
-  padding: 4px 6px;
+  color: rgba(255, 255, 255, 0.90);
 }
 
 #custom-music_prev,
 #custom-music_play,
 #custom-music_next {
-  color: rgba(235, 155, 180, 0.9);
+  color: rgba(255, 170, 200, 1);
   font-weight: 600;
-  padding: 2px 4px;
-  margin: 0 1px;
-  min-width: 0;
 }
 
 /* ===================== */
@@ -84,9 +90,7 @@ window#waybar {
 /* ===================== */
 
 #pulseaudio {
-  color: rgba(188, 190, 196, 0.85);
-  margin-left: 4px;
-  padding: 4px 6px;
+  color: rgba(220, 220, 230, 0.85);
 }
 
 /* ===================== */
@@ -96,28 +100,19 @@ window#waybar {
 #custom-weather,
 #custom-date,
 #clock {
-  color: rgba(235, 235, 235, 0.85);
+  color: rgba(230, 230, 240, 0.85);
 }
 
 /* ===================== */
-/* ANIMATION */
+/* HOVER (SÓ TEXTO - SEM FUNDO) */
 /* ===================== */
 
-window#waybar {
-  transition: all 0.25s ease;
-}
-
-window#waybar.focus {
-  opacity: 0;
-}
-
-#custom-bluetooth {
-  padding: 4px 8px;
-  margin: 0 3px;
-  border-radius: 8px;
-  color: rgba(235, 235, 235, 0.85);
-}
-
-#custom-bluetooth:hover {
-  background: rgba(235, 155, 180, 0.08);
+#custom-bluetooth:hover,
+#pulseaudio:hover,
+#custom-music:hover,
+#custom-music_prev:hover,
+#custom-music_play:hover,
+#custom-music_next:hover {
+  color: rgba(255, 170, 200, 1);
+  transition: all 0.2s ease;
 }

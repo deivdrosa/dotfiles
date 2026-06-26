@@ -2,13 +2,11 @@ autologin.blob="JN86vcYDkTmbw2uhjAp8o/2qz5lzWIblQZmWciDDJ2BUZtuLzU2c+uWPrP2xrgzh
 autologin.canonical_username="5b0wj2p5j9b11ije1gzpub7ui"
 autologin.saved_credentials="{\"5b0wj2p5j9b11ije1gzpub7ui\":[\"5b0wj2p5j9b11ije1gzpub7ui\",\"JN86vcYDkTmbw2uhjAp8o/2qz5lzWIblQZmWciDDJ2BUZtuLzU2c+uWPrP2xrgzhjqoNPOFC6J4y7QSCUQ669zvmIYFlAHh28S+OynoQuxRoa+QR/UAD1Lj1bVM3cCqif18EfVvFPl64epcvyZQRRkAsf/tp8V+XFoG7tW6ZKsv6DnhAjShUZdrnTNU/yJ494wkXiGF7KGjIoHcrAR8aNL6sTRb7Y0EZrAnG77h/sW3nLVXM97AXLUq9ZzSvGl7M9XUNhRBEEq75+tvHdtAOl9ZkPJPWM02eEOi3qHPgS3U=\"]}"
 app.window.state.saved=true
-app.window.position.width=900
+app.window.position.width=1920
 es.send-on-startup=true
 core.clock_delta=0
 storage.last-location="/home/deeh/.cache/spotify/Storage"
-app.window.position.x=510
 autologin.username="5b0wj2p5j9b11ije1gzpub7ui"
 app.window.position.saved=true
-app.window.position.height=600
-app.window.position.y=262
+app.window.position.height=1080
 app.last-launched-version="1.2.92.147.g5b8f9367"

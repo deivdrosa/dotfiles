@@ -1,0 +1,36 @@
+-- =========================
+-- 🎧 VIS AUDIO VISUALIZER
+-- Catppuccin dark + accent rosa
+-- =========================
+
+return {
+  colors = {
+    background = "#1e1f25",
+    foreground = "#cdd6f4",
+
+    -- 🎯 ACCENT PRINCIPAL (teu rosa)
+    primary = "#ffb2c8",
+    secondary = "#ff8fb3",
+    tertiary = "#e85f8f",
+  },
+
+  visualizer = {
+    -- estilo mais "chunky / bold"
+    bars = 50,
+
+    -- suavização (deixa fluido tipo cava tuned)
+    smooth = true,
+
+    -- intensidade
+    sensitivity = 60,
+
+    -- cores dinâmicas baseadas no audio
+    gradient = true,
+  },
+
+  ui = {
+    border = "rounded",
+    title = "VIS AUDIO",
+    center = true,
+  }
+}
