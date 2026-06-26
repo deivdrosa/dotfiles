@@ -5,34 +5,32 @@ CONFIG="$HOME/.config"
 
 cd "$REPO" || exit 1
 
-sync () {
-    rsync -a --delete "$1" "$2"
-}
-
 case "$1" in
 
 up)
     echo "[github] SYSTEM → REPO full sync"
 
-    # configs principais
-    rsync -a "$CONFIG/" "$REPO/.config/"
+    # pacotes
+    pacman -Qqe > "$REPO/pacman.txt"
 
-    # shell configs
+    if command -v yay >/dev/null 2>&1; then
+        yay -Qqe > "$REPO/aur.txt"
+    fi
+
+    # configs
+    rsync -a "$CONFIG/" "$REPO/.config/"
     rsync -a "$HOME/.zshrc" "$REPO/"
     rsync -a "$HOME/.bashrc" "$REPO/"
-
-    # scripts
     rsync -a "$HOME/.local/bin/" "$REPO/scripts/"
-
-    echo "[github] committing..."
 
     git add -A
 
-    git commit -m "system snapshot $(date +%F-%H:%M)" || {
-        echo "nothing to commit"
+    if git diff --cached --quiet; then
+        echo "[github] nothing to commit"
         exit 0
-    }
+    fi
 
+    git commit -m "system snapshot $(date +%F-%H:%M)"
     git push
 
     echo "[github] UP done"
@@ -45,7 +43,6 @@ restore)
 
     rsync -a "$REPO/.config/" "$CONFIG/"
     rsync -a "$REPO/scripts/" "$HOME/.local/bin/"
-
     cp "$REPO/.zshrc" "$HOME/"
     cp "$REPO/.bashrc" "$HOME/"
 
@@ -59,10 +56,10 @@ check)
     diff -q "$HOME/.zshrc" "$REPO/.zshrc"
     diff -q "$HOME/.bashrc" "$REPO/.bashrc"
 
-    echo "[github] check done"
+    echo "[github] CHECK done"
     ;;
 
 *)
-    echo "github up | restore | check"
+    echo "Usage: github up | restore | check"
     ;;
 esac

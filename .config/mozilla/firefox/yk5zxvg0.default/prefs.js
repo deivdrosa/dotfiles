@@ -105,7 +105,7 @@ user_pref("doh-rollout.doneFirstRun", true);
 user_pref("doh-rollout.home-region", "BR");
 user_pref("dom.forms.autocomplete.formautofill", true);
 user_pref("dom.ipc.processCount", 2);
-user_pref("dom.push.userAgentID", "df8f9ce783754e13b03bbf0ff27096b9");
+user_pref("dom.push.userAgentID", "d46f875d92bc4b32959ff56d25ad8b85");
 user_pref("extensions.activeThemeID", "{5c7f2d8a-9bea-4b69-abcd-e4258dfe947b}");
 user_pref("extensions.autoDisableScopes", 0);
 user_pref("extensions.blocklist.pingCountVersion", -1);
