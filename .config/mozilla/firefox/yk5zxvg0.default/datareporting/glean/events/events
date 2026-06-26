@@ -27,3 +27,5 @@
 {"timestamp":3277798,"category":"link.handling","name":"open_from_external_app","extra":{"glean_timestamp":"1782482041488","next_to_active_tab":"false"}}
 {"timestamp":3279090,"category":"normandy","name":"expose_nimbus_experiment","extra":{"featureId":"fxms-message-11","branchSlug":"rollout-branch","value":"pin-frequently-used-websites-promo-rollout-day-3-users-all-locales","glean_timestamp":"1782482042780"}}
 {"timestamp":3279090,"category":"nimbus_events","name":"exposure","extra":{"feature_id":"fxms-message-11","experiment":"pin-frequently-used-websites-promo-rollout-day-3-users-all-locales","glean_timestamp":"1782482042780","branch":"rollout-branch"}}
+{"timestamp":3368842,"category":"normandy","name":"expose_nimbus_experiment","extra":{"value":"pin-frequently-used-websites-promo-rollout-day-3-users-all-locales","featureId":"fxms-message-11","branchSlug":"rollout-branch","glean_timestamp":"1782482132532"}}
+{"timestamp":3368842,"category":"nimbus_events","name":"exposure","extra":{"feature_id":"fxms-message-11","glean_timestamp":"1782482132532","experiment":"pin-frequently-used-websites-promo-rollout-day-3-users-all-locales","branch":"rollout-branch"}}
