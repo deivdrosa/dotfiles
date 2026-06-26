@@ -1,0 +1,123 @@
+* {
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+/* ===================== */
+/* BAR */
+/* ===================== */
+
+window#waybar {
+  background: rgba(0, 0, 0, 0.25);
+  border-bottom: 2px solid rgba(235, 155, 180, 0.7);
+
+  min-height: 48px;
+  padding: 4px 10px;
+}
+
+/* ===================== */
+/* BASE MODULE STYLE */
+/* ===================== */
+
+#workspaces,
+#custom-cpu,
+#custom-gpu,
+#custom-ram,
+#custom-music,
+#custom-music_prev,
+#custom-music_play,
+#custom-music_next,
+#pulseaudio,
+#custom-weather,
+#custom-date,
+#clock {
+  padding: 4px 8px;
+  margin: 0 3px;
+  border-radius: 8px;
+}
+
+/* ===================== */
+/* WORKSPACES */
+/* ===================== */
+
+#workspaces button {
+  color: rgba(210, 210, 210, 0.9);
+  padding: 5px 8px;
+  border-radius: 6px;
+}
+
+#workspaces button.active {
+  color: rgba(235, 155, 180, 1);
+  border-bottom: 2px solid rgba(235, 155, 180, 0.9);
+}
+
+/* ===================== */
+/* SYSTEM INFO */
+/* ===================== */
+
+#custom-cpu,
+#custom-gpu,
+#custom-ram {
+  color: rgba(235, 235, 235, 0.85);
+}
+
+/* ===================== */
+/* MUSIC + CONTROLS */
+/* ===================== */
+
+#custom-music {
+  color: rgba(188, 190, 196, 0.85);
+  padding: 4px 6px;
+}
+
+#custom-music_prev,
+#custom-music_play,
+#custom-music_next {
+  color: rgba(235, 155, 180, 0.9);
+  font-weight: 600;
+  padding: 2px 4px;
+  margin: 0 1px;
+  min-width: 0;
+}
+
+/* ===================== */
+/* VOLUME */
+/* ===================== */
+
+#pulseaudio {
+  color: rgba(188, 190, 196, 0.85);
+  margin-left: 4px;
+  padding: 4px 6px;
+}
+
+/* ===================== */
+/* RIGHT SIDE */
+/* ===================== */
+
+#custom-weather,
+#custom-date,
+#clock {
+  color: rgba(235, 235, 235, 0.85);
+}
+
+/* ===================== */
+/* ANIMATION */
+/* ===================== */
+
+window#waybar {
+  transition: all 0.25s ease;
+}
+
+window#waybar.focus {
+  opacity: 0;
+}
+
+#custom-bluetooth {
+  padding: 4px 8px;
+  margin: 0 3px;
+  border-radius: 8px;
+  color: rgba(235, 235, 235, 0.85);
+}
+
+#custom-bluetooth:hover {
+  background: rgba(235, 155, 180, 0.08);
+}

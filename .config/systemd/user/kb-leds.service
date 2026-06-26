@@ -1,0 +1,11 @@
+[Unit]
+Description=Enable NumLock and ScrollLock
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/deeh/.local/bin/keyboard-leds.sh
+
+[Install]
+WantedBy=graphical-session.target

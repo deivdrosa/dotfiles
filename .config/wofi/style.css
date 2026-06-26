@@ -1,0 +1,55 @@
+/* =========================
+   WINDOW (base + borda + fix clipping)
+========================= */
+window {
+    margin: 0px;
+    border: 2px solid #ff4d6d;
+    border-radius: 14px;
+    background-color: #0f0f12;
+}
+
+/* =========================
+   INPUT (cinza suave)
+========================= */
+#input {
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #1a1a1f;
+    color: #d0d0d0;
+}
+
+/* =========================
+   LIST CONTAINER
+========================= */
+#inner-box {
+    margin: 0px;
+    padding: 10px;
+    background-color: transparent;
+}
+
+/* =========================
+   ENTRIES (apps)
+========================= */
+#entry {
+    margin: 2px 6px;
+    padding: 10px;
+    border-radius: 10px;
+    color: #c9c9c9;
+}
+
+/* hover/selected */
+#entry:selected {
+    background-color: #ff4d6d;
+    color: #0f0f12;
+    border-radius: 10px;
+}
+
+/* =========================
+   SCROLLBAR (REMOVIDA)
+========================= */
+scrollbar {
+    opacity: 0;
+    width: 0px;
+}

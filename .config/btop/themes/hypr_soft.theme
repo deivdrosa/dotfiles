@@ -1,0 +1,26 @@
+# HYFETCH MATCH THEME
+# soft pink/red gradient aesthetic
+
+theme[main_bg]="#1b1a1f"
+theme[main_fg]="#f5e9ec"
+
+theme[title]="#ff9aa9"
+theme[hi_fg]="#ff6b86"
+theme[selected_bg]="#24212a"
+theme[selected_fg]="#ffd1d9"
+
+theme[inactive_fg]="#7a6f75"
+
+theme[graph_text]="#ff9aa9"
+theme[graph_symbol]="#ff6b86"
+
+theme[cpu_box]="#ff6b86"
+theme[mem_box]="#f54b6e"
+theme[net_box]="#ff9aa9"
+theme[proc_box]="#ffd1d9"
+
+theme[div_line]="#2a252c"
+
+theme[temp_start]="#ffd1d9"
+theme[temp_mid]="#ff9aa9"
+theme[temp_end]="#f54b6e"

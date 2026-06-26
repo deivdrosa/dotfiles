@@ -1,0 +1,7 @@
+show=drun
+width=450
+height=500
+prompt=Apps
+allow_images=true
+insensitive=true
+term=kitty

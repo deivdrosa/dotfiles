@@ -1,0 +1,14 @@
+window {
+  border: 2px solid;
+}
+
+listview {
+  spacing: 6px;
+}
+
+element {
+  padding: 10px;
+}
+
+element selected {
+}

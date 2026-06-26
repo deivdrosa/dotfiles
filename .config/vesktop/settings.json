@@ -1,0 +1,9 @@
+{
+    "discordBranch": "canary",
+    "minimizeToTray": true,
+    "arRPC": true,
+    "hardwareVideoAcceleration": true,
+    "tray": false,
+    "splashColor": "rgb(238, 238, 238)",
+    "splashBackground": "rgb(0, 0, 0)"
+}

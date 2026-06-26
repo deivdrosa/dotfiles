@@ -1,0 +1,68 @@
+#!/bin/bash
+
+REPO="$HOME/dotfiles"
+CONFIG="$HOME/.config"
+
+cd "$REPO" || exit 1
+
+sync () {
+    rsync -a --delete "$1" "$2"
+}
+
+case "$1" in
+
+up)
+    echo "[github] SYSTEM → REPO full sync"
+
+    # configs principais
+    rsync -a "$CONFIG/" "$REPO/.config/"
+
+    # shell configs
+    rsync -a "$HOME/.zshrc" "$REPO/"
+    rsync -a "$HOME/.bashrc" "$REPO/"
+
+    # scripts
+    rsync -a "$HOME/.local/bin/" "$REPO/scripts/"
+
+    echo "[github] committing..."
+
+    git add -A
+
+    git commit -m "system snapshot $(date +%F-%H:%M)" || {
+        echo "nothing to commit"
+        exit 0
+    }
+
+    git push
+
+    echo "[github] UP done"
+    ;;
+
+restore)
+    echo "[github] REPO → SYSTEM restore"
+
+    git pull
+
+    rsync -a "$REPO/.config/" "$CONFIG/"
+    rsync -a "$REPO/scripts/" "$HOME/.local/bin/"
+
+    cp "$REPO/.zshrc" "$HOME/"
+    cp "$REPO/.bashrc" "$HOME/"
+
+    echo "[github] RESTORE done"
+    ;;
+
+check)
+    echo "[github] diff check"
+
+    diff -rq "$CONFIG" "$REPO/.config"
+    diff -q "$HOME/.zshrc" "$REPO/.zshrc"
+    diff -q "$HOME/.bashrc" "$REPO/.bashrc"
+
+    echo "[github] check done"
+    ;;
+
+*)
+    echo "github up | restore | check"
+    ;;
+esac

@@ -1,0 +1,35 @@
+@theme "/usr/share/rofi/themes/Arc.rasi"
+
+* {
+    foreground:                  rgba(163, 154, 160, 1.0);
+    normal-foreground:           @foreground;
+
+    background:                  rgba(15, 15, 18, 1.0);
+    normal-background:           @background;
+
+    alternate-normal-background: rgba(22, 22, 26, 1.0);
+
+    selected-normal-background:  rgba(163, 154, 160, 0.25);
+    selected-normal-foreground:  rgba(220, 220, 220, 1.0);
+
+    bordercolor:                 rgba(163, 154, 160, 0.35);
+    separatorcolor:              rgba(40, 40, 45, 1.0);
+}
+
+/* =========================
+   WINDOW (GLASS EFFECT)
+========================= */
+window {
+    background-color: rgba(15, 15, 18, 0.80);
+    border: 2px;
+    border-color: rgba(163, 154, 160, 0.30);
+    border-radius: 14px;
+}
+
+/* =========================
+   SELECTION (SOFT ACCENT)
+========================= */
+element selected.normal {
+    background-color: rgba(163, 154, 160, 0.22);
+    text-color: rgba(240, 240, 240, 1.0);
+}

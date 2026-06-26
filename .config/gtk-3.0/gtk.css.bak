@@ -1,0 +1,14 @@
+/* Força compatibilidade básica do Nemo */
+
+.nemo-window {
+    background-color: @theme_bg_color;
+    color: @theme_fg_color;
+}
+
+.nemo-window headerbar {
+    background-color: @theme_base_color;
+}
+
+.nemo-window .view {
+    background-color: @theme_bg_color;
+}

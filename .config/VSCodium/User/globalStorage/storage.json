@@ -1,0 +1,69 @@
+{
+    "telemetry.sqmId": "",
+    "telemetry.machineId": "4e8e321cf61c799044913e9c234bc4b2fe345a1d4ef5a0cf3c8bd14544b5ead5",
+    "telemetry.devDeviceId": "981bb204-5191-4239-8477-c7e4afbd15a2",
+    "backupWorkspaces": {
+        "workspaces": [],
+        "folders": [],
+        "emptyWindows": [
+            {
+                "backupFolder": "1782358429351"
+            }
+        ]
+    },
+    "windowControlHeight": 35,
+    "profileAssociations": {
+        "workspaces": {
+            "file:///home/deeh": "__default__profile__"
+        },
+        "emptyWindows": {
+            "1782358429351": "__default__profile__"
+        }
+    },
+    "theme": "vs-dark",
+    "themeBackground": "#121314",
+    "windowSplash": {
+        "zoomLevel": 0,
+        "baseTheme": "vs-dark",
+        "colorInfo": {
+            "foreground": "#bfbfbf",
+            "background": "#121314",
+            "editorBackground": "#121314",
+            "titleBarBackground": "#191a1b",
+            "titleBarBorder": "#2a2b2c",
+            "activityBarBackground": "#191a1b",
+            "activityBarBorder": "#2a2b2c",
+            "sideBarBackground": "#191a1b",
+            "sideBarBorder": "#2a2b2c",
+            "statusBarBackground": "#191a1b",
+            "statusBarBorder": "#2a2b2c",
+            "statusBarNoFolderBackground": "#191a1b"
+        }
+    },
+    "windowsState": {
+        "lastActiveWindow": {
+            "backupPath": "/home/deeh/.config/VSCodium/Backups/1782358429351",
+            "uiState": {
+                "mode": 3,
+                "display": 68,
+                "width": 940,
+                "height": 996,
+                "x": 0,
+                "y": 0
+            }
+        },
+        "openedWindows": []
+    },
+    "windowSplashWorkspaceOverride": {
+        "layoutInfo": {
+            "sideBarWidth": 233,
+            "auxiliaryBarWidth": 300,
+            "workspaces": {
+                "9bf10be017fef61ff9566728e4e59947": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                }
+            }
+        }
+    }
+}

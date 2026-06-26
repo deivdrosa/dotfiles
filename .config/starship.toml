@@ -1,0 +1,25 @@
+add_newline = false
+
+format = """
+[╭─ ](bold #ED445F)\
+[deeh](bold #ED445F) \
+[›](#8a8a8a) \
+[](#ff6b86) \
+[$hostname](#8a8a8a) \
+[›](#8a8a8a) \
+[$directory](#ff6b86)$git_branch
+[╰─](bold #ff9aa9) ❯ """
+
+[character]
+success_symbol = ""
+error_symbol = "✗"
+
+[directory]
+style = "#ff6b86"
+
+[git_branch]
+symbol = "  "
+style = "#ED445F"
+
+[hostname]
+style = "#8a8a8a"

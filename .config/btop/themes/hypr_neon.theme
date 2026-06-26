@@ -1,0 +1,26 @@
+# HYPR CLEAN NEON THEME
+# btop custom theme
+
+theme[main_bg]="#0f0f14"
+theme[main_fg]="#e6e6e6"
+
+theme[title]="#8be9fd"
+theme[hi_fg]="#50fa7b"
+theme[selected_bg]="#1a1a22"
+theme[selected_fg]="#ff79c6"
+
+theme[inactive_fg]="#44475a"
+
+theme[graph_text]="#8be9fd"
+theme[graph_symbol]="#50fa7b"
+
+theme[cpu_box]="#bd93f9"
+theme[mem_box]="#ff5555"
+theme[net_box]="#8be9fd"
+theme[proc_box]="#f1fa8c"
+
+theme[div_line]="#22222c"
+
+theme[temp_start]="#50fa7b"
+theme[temp_mid]="#f1fa8c"
+theme[temp_end]="#ff5555"

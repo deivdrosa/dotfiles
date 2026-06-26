@@ -1,0 +1,27 @@
+/* REMOVE TITLE BAR */
+#titlebar {
+  visibility: collapse !important;
+}
+
+/* REMOVE TABS BAR */
+#TabsToolbar {
+  visibility: collapse !important;
+}
+
+/* OCULTA TOOLBAR */
+#navigator-toolbox {
+  border: none !important;
+}
+
+/* NAVBAR AUTO HIDE */
+#nav-bar {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: 0.2s ease;
+}
+
+/* MOSTRA NO HOVER */
+#navigator-toolbox:hover #nav-bar {
+  opacity: 1;
+  transform: translateY(0);
+}

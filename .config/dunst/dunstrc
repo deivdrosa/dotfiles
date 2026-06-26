@@ -1,0 +1,15 @@
+[global]
+origin = top-center
+offset = 0, 20
+
+frame_width = 1
+corner_radius = 12
+
+background = "#0b0c10CC"
+foreground = "#ffffff"
+
+frame_color = "#ff4d6d66"
+
+font = JetBrainsMono Nerd Font 10
+
+notification_limit = 3

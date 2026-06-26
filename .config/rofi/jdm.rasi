@@ -1,0 +1,23 @@
+* {
+    bg: #0f0f12;
+    fg: #c9c9c9;
+    accent: #ff4d6d;
+}
+
+window {
+    background-color: @bg;
+    border: 2px solid @accent;
+    border-radius: 14px;
+}
+
+entry {
+    background-color: #1a1a1f;
+    text-color: @fg;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+element selected {
+    background-color: @accent;
+    text-color: @bg;
+}

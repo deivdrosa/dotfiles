@@ -1,0 +1,22 @@
+models:
+  - title: Groq Llama 3.3 70B
+    provider: groq
+    model: llama-3.3-70b-versatile
+    apiKey: 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
+  - name: Autodetect
+    provider: ollama
+    model: AUTODETECT
+  - name: Llama3.1 8b Chat
+    provider: groq
+    model: llama3.1-8b
+    apiKey: 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
+    contextLength: 4096
+  - name: Llama3.1 8b Chat (1)
+    provider: groq
+    model: llama3.1-8b
+    apiKey: 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
+    contextLength: 4096
+tabAutocompleteModel:
+  title: Groq Fast
+  provider: groq
+  model: llama-3.3-70b-versatile

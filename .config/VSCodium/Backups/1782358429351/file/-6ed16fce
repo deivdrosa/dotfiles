@@ -1,0 +1,27 @@
+file:///home/deeh/survival-game/enemy.gd {"mtime":1782386971165,"ctime":1782386971164,"size":539,"etag":"3g9ecqsbahc","orphaned":false,"typeId":""}
+extends CharacterBody2D
+
+@export var speed := 160.0
+@export var attack_distance := 36.0
+
+var player
+var hp := 3
+var enemy = self
+
+func _ready():
+	get_tree().get_root().add_child(enemy)
+	player = get_tree().get_first_node_in_group("player")
+
+func _physics_process(_delta):
+	if player == null:
+		player = get_tree().get_first_node_in_group("player")
+		if player == null:
+			return
+
+	var distance = global_position.distance_to(player.global_position)
+	velocity = global_position.direction_to(player.global_position) * speed
+	move_and_slide()
+
+	if distance < attack_distance:
+		player.take_damage(1)
+

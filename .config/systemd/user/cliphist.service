@@ -1,0 +1,9 @@
+[Unit]
+Description=Clipboard history watcher (cliphist)
+
+[Service]
+ExecStart=/bin/bash -c 'wl-paste --watch cliphist store'
+Restart=always
+
+[Install]
+WantedBy=default.target

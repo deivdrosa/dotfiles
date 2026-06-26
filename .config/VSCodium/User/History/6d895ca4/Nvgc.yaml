@@ -1,0 +1,15 @@
+{
+  "models": [
+    {
+      "title": "Groq Llama 3.3 70B",
+      "provider": "groq",
+      "model": "llama-3.3-70b-versatile",
+      "apiKey": "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"
+    }
+  ],
+  "tabAutocompleteModel": {
+    "title": "Groq Fast",
+    "provider": "groq",
+    "model": "llama-3.3-70b-versatile"
+  }
+}

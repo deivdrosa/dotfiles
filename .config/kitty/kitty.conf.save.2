@@ -1,0 +1,99 @@
+# =====================================================
+# KITTY - FULL RICE CONFIG (CLEAN / STABLE / WAYLAND)
+# =====================================================
+
+# ---------------------
+# FONT
+# ---------------------
+font_family      JetBrainsMono Nerd Font
+font_size        13.0
+disable_ligatures never
+
+# ---------------------
+# COLORS (RED / DARK / MODERN)
+# ---------------------
+
+foreground       #b8b8b8
+background       #0b0c10
+
+cursor           #ff2f4f
+
+selection_background #ff2f4f
+selection_foreground #0b0c10
+
+# base dark
+color0  #0b0c10
+color8  #1c1f26
+
+# red accent (vivo)
+color1  #ff2f4f
+color9  #ff6b7a
+
+# neutral palette (balanced gray)
+color2  #8f8f8f
+color3  #a0a0a0
+color4  #adadad
+color5  #b8b8b8
+color6  #c8c8c8
+color7  #e0e0e0
+
+# ---------------------
+# WINDOW LOOK (GLASS STYLE)
+# ---------------------
+
+background_opacity 07
+dynamic_background_opacity yes
+
+window_padding_width 12
+window_margin_width 0
+
+hide_window_decorations yes
+
+# border style (clean + subtle contrast)
+window_border_width 1
+active_border_color #ff2f4f
+inactive_border_color #1a1c22
+
+# ---------------------
+# BEHAVIOR / UX
+# ---------------------
+
+scrollback_lines 10000
+
+enable_audio_bell no
+visual_bell no
+
+confirm_os_window_close 0
+
+copy_on_select yes
+
+cursor_blink_interval 0
+
+# smooth scrolling feel
+wheel_scroll_multiplier 3.0
+
+# ---------------------
+# WAYLAND / HYPRLAND
+# ---------------------
+
+linux_display_server wayland
+
+# clipboard integration (Wayland)
+clipboard_control write-clipboard write-primary
+
+# ---------------------
+# SCROLLBACK / VIEWER
+# ---------------------
+
+scrollback_pager less
+scrollback_pager_history_size 200
+
+# ---------------------
+# PERFORMANCE / CLEAN VISUALS
+# ---------------------
+
+repaint_delay 10
+input_delay 3
+
+# reduces flicker in animations / HUD scripts
+sync_to_monitor yes

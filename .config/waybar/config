@@ -1,0 +1,94 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 44,
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/cpu",
+    "custom/gpu",
+    "custom/ram"
+  ],
+
+  "modules-center": [
+    "custom/music",
+    "custom/music_prev",
+    "custom/music_play",
+    "custom/music_next",
+    "pulseaudio"
+  ],
+
+  "modules-right": [
+    "custom/weather",
+    "custom/date",
+    "clock",
+    "custom/bluetooth"
+  ],
+
+  "custom/music": {
+    "exec": "bash -c 'playerctl --player=spotify metadata --format \"{{artist}} - {{title}}\" 2>/dev/null || echo \"Spotify\"'",
+    "interval": 2,
+    "on-click": "/home/deeh/.config/waybar/spotify-launch.sh"
+  },
+
+  "custom/music_prev": {
+    "exec": "bash -c 'playerctl --player=spotify status 2>/dev/null | grep -q . && echo \"‹\"'",
+    "interval": 1,
+    "on-click": "playerctl --player=spotify previous && pkill -SIGRTMIN+8 waybar"
+  },
+
+  "custom/music_play": {
+    "exec": "bash -c 'status=$(playerctl --player=spotify status 2>/dev/null); if [ \"$status\" = \"Playing\" ]; then echo \"⏸\"; elif [ \"$status\" = \"Paused\" ]; then echo \"▶\"; elif [ -n \"$status\" ]; then echo \"▶\"; fi'",
+    "interval": 1,
+    "on-click": "playerctl --player=spotify play-pause && pkill -SIGRTMIN+8 waybar"
+  },
+
+  "custom/music_next": {
+    "exec": "bash -c 'playerctl --player=spotify status 2>/dev/null | grep -q . && echo \"›\"'",
+    "interval": 1,
+    "on-click": "playerctl --player=spotify next && pkill -SIGRTMIN+8 waybar"
+  },
+
+  "custom/cpu": {
+    "exec": "awk -v FS=' ' '/^cpu /{u=$2+$4; t=$2+$3+$4+$5; printf \" CPU %.0f%%\", (u/t)*100}' /proc/stat",
+    "interval": 2
+  },
+
+  "custom/gpu": {
+    "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits 2>/dev/null | awk '{printf \" GPU %s%%\", $1}' || echo ' GPU N/A'",
+    "interval": 5
+  },
+
+  "custom/ram": {
+    "exec": "awk '/MemTotal/ {t=$2} /MemAvailable/ {a=$2} END {printf \" RAM %.0f%%\", (1-a/t)*100}' /proc/meminfo",
+    "interval": 2
+  },
+
+  "pulseaudio": {
+    "format": "  {volume}%",
+    "scroll-step": 5,
+    "on-click": "pavucontrol",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+  },
+
+  "custom/weather": {
+    "exec": "curl -s 'wttr.in/Palhoca?format=🌤️+%l:+%t' || echo '🌤️ Palhoça ?°C'",
+    "interval": 1800
+  },
+
+  "custom/date": {
+    "exec": "date '+ %d/%m/%Y'",
+    "interval": 60
+  },
+
+  "clock": {
+    "format": " {:%H:%M}"
+  },
+
+  "custom/bluetooth": {
+    "format": "",
+    "tooltip": "Bluetooth",
+    "on-click": "blueman-manager"
+  }
+    }

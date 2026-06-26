@@ -1,0 +1,16 @@
+{
+    "security.workspace.trust.untrustedFiles": "open"
+}
+
+{
+  "editor.inlineSuggest.enabled": true,
+  "editor.suggest.showWords": false,
+  "editor.suggest.showSnippets": true,
+  "editor.wordBasedSuggestions": "off",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  },
+  "editor.parameterHints.enabled": true
+}

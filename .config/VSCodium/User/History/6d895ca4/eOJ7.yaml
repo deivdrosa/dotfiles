@@ -1,0 +1,11 @@
+models:
+  - title: Groq Llama 3.1 70B
+    provider: groq
+    model: llama-3.1-70b-versatile
+    apiKey: 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
+
+tabAutocompleteModel:
+  title: Groq Autocomplete
+  provider: groq
+  model: llama-3.1-70b-versatile
+  apiKey: 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

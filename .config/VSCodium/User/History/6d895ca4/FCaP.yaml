@@ -1,0 +1,15 @@
+{
+  "models": [
+    {
+      "title": "Groq Llama 3.3 70B",
+      "provider": "groq",
+      "model": "llama-3.3-70b-versatile",
+      "apiKey": "SUA_CHAVE_GROQ"
+    }
+  ],
+  "tabAutocompleteModel": {
+    "title": "Groq Fast",
+    "provider": "groq",
+    "model": "llama-3.3-70b-versatile"
+  }
+}

@@ -1,0 +1,273 @@
+env = __GL_THREADED_OPTIMIZATIONS,1
+env = __GL_SYNC_TO_VBLANK,0
+
+input {
+    sensitivity = -0.5
+}
+
+
+env = NVD_BACKEND,direct
+env = __GL_GSYNC_ALLOWED,1
+env = __GL_VRR_ALLOWED,1
+# -------------------
+# INPUT
+
+monitor = HDMI-A-1,1920x1080@59,0x0,1, vrr, 1
+
+# -------------------
+input {
+    kb_layout = br
+    kb_variant = abnt2
+}
+
+# -------------------
+# TERMINAL
+
+# -------------------
+
+bind = SUPER, W, exec, emote
+
+
+$terminal = kitty
+
+windowrule = float class:^(eww)$
+windowrule = pin class:^(eww)$
+
+# -------------------
+# APP LAUNCHER
+# -------------------
+$menu = rofi -show drun
+
+# -------------------
+
+# BINDINGS (ATALHOS)
+
+
+# -------------------
+bind = SUPER, G, togglefloating
+# PRINT
+
+bind = , Print, exec, sh -c 'grim -g "$(slurp)" ~/Pictures/ss-$(date +%s).png && wl-copy < ~/Pictures/ss-$(date +%s).png'
+bind = CTRL, Print, exec, screenshot editor
+bind = SHIFT, Print, exec, screenshot clip
+
+# 🎛️ TRANSPARÊNCIA GLOBAL POR APLICATIVO
+
+# 🎵 TRANSPARÊNCIA SPOTIFY
+
+
+
+# =========================
+# VESKTOP
+# =========================
+
+bind = SUPER, E, togglespecialworkspace, files
+
+
+
+windowrule {
+  name = nemo-drawer
+  match {
+    class = ^(nemo|Nemo)$
+  }
+  workspace = special:files
+  float = on
+  center = on
+  size = 1000 700
+  rounding = 12
+}
+
+
+
+windowrule {
+  name = vesktop-drawer
+  match {
+    class = ^(vesktop|Vesktop)$
+  }
+  workspace = special:vesktop
+  float = on
+  center = on
+  size = 1000 700
+  rounding = 12
+}
+
+# =========================
+# SPOTIFY
+# =========================
+windowrule {
+  name = spotify-drawer
+  match {
+    class = ^(Spotify)$
+  }
+  workspace = special:spotify
+  float = on
+  center = on
+  size = 900 600
+  rounding = 12
+}
+
+
+
+windowrule {
+  name = spotify-opacity
+  match {
+    class = Spotify
+  }
+  opacity = 0.95 0.85
+}
+
+windowrule {
+  name = imv-opacity
+  match {
+    class = imv
+  }
+  opacity = 0.90 0.75
+}
+
+
+
+windowrule {
+  name = nemo-opacity
+  match {
+    class = nemo
+  }
+  opacity = 0.85 0.60
+}
+
+windowrule {
+  name = vesktop-opacity
+  match {
+    class = vesktop
+  }
+  opacity = 0.85 0.60
+}
+
+windowrule {
+  name = firefox-opacity
+  match {
+    class = firefox
+  }
+  opacity = 0.85 0.60
+}
+windowrule {
+  name = kitty-opacity
+  match {
+    class = kitty
+  }
+  opacity = 0.85 0.60
+}
+
+# abrir terminal
+bind = SUPER, Q, exec, kitty
+
+# fechar janela ativa
+bind = SUPER, C, killactive
+
+# abrir launcher
+bind = SUPER, D, exec, rofi -show drun
+
+# recarregar hyprland
+bind = SUPER, R, exec, hyprctl reload
+
+# sair do hyprland
+bind = SUPER, ESCAPE, exit
+
+# fullscreen
+bind = SUPER, F, fullscreen
+
+general {
+    border_size = 2
+
+    col.active_border = rgba(a88a91ff)
+    col.inactive_border = rgba(44444488)
+}
+
+
+decoration {
+  rounding = 10
+
+  blur {
+    enabled = true
+    size = 29
+    passes = 8
+    new_optimizations = true
+    xray = true
+    ignore_opacity = false
+  }
+
+  shadow {
+    enabled = true
+    range = 4
+    render_power = 5
+  }
+}
+
+##### TESTE MINI PLAYER ####
+
+bind = SUPER, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
+bindm = SUPER, mouse:272, movewindow
+bind = SUPER, mouse_up, resizeactive, -40 -40
+bind = SUPER, mouse_down, resizeactive, 60 60
+
+
+# mover foco (vim style)
+bind = SUPER, Left, movefocus, l
+bind = SUPER, Right, movefocus, r
+bind = SUPER, Up, movefocus, u
+bind = SUPER, Down, movefocus, d
+
+bind = CTRL, LEFT,  moveactive, -20 0
+bind = CTRL, RIGHT, moveactive, 20 0
+bind = CTRL, UP,    moveactive, 0 -20
+bind = CTRL, DOWN,  moveactive, 0 20
+
+bind = ALT, LEFT,  resizeactive, -20 0
+bind = ALT, RIGHT, resizeactive, 20 0
+bind = ALT, UP,    resizeactive, 0 -20
+bind = ALT, DOWN,  resizeactive, 0 20
+
+bind = SUPER SHIFT, Left, movewindow, l
+bind = SUPER SHIFT, Right, movewindow, r
+bind = SUPER SHIFT, Up, movewindow, u
+bind = SUPER SHIFT, Down, movewindow, d
+
+
+bind = SUPER, 1, workspace, 1
+bind = SUPER, 2, workspace, 2
+bind = SUPER, 3, workspace, 3
+bind = SUPER, 4, workspace, 4
+
+bind = SUPER SHIFT, 1, movetoworkspace, 1
+bind = SUPER SHIFT, 2, movetoworkspace, 2
+bind = SUPER SHIFT, 3, movetoworkspace, 3
+bind = SUPER SHIFT, 4, movetoworkspace, 4
+
+# =========================
+# DRAWERS (NUMPAD)
+# =========================
+
+# Vesktop (Discord)
+bind = SUPER, S, togglespecialworkspace, vesktop
+
+# Spotify
+bind = SUPER, A, togglespecialworkspace, spotify
+
+# Terminal
+
+input {
+    repeat_rate = 60
+    repeat_delay = 200
+}
+
+
+
+exec-once = wl-paste --type text --watch cliphist store
+exec-once = wl-paste --type image --watch cliphist store
+exec-once = dunst
+exec-once = waybar
+exec-once = mako
+exec-once = awww-daemon
+exec-once = awww img /home/deeh/Pictures/wallpapers/anime.jpg --transition zoom
+
+
+exec-once = mpv --no-video "/home/deeh/Downloads/JDM Melody box - DkAcidAces (320k).mp3"

@@ -1,0 +1,4 @@
+[Plugins]
+kdeconnect_clipboardEnabled=true
+kdeconnect_screensaver_inhibitEnabled=false
+kdeconnect_shareinputdevicesEnabled=true
