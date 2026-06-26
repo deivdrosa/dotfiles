@@ -1,81 +1,39 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -e
 
-echo "🚀 Iniciando setup do dotfiles..."
+echo "🚀 Installing dotfiles..."
 
-# ----------------------------
-# PACOTES BASE (Arch)
-# ----------------------------
-echo "📦 Instalando pacotes..."
+DOTFILES="$HOME/dotfiles"
 
-sudo pacman -S --needed \
-hyprland waybar kitty rofi \
-wl-clipboard cliphist \
-xdg-desktop-portal-hyprland \
-git base-devel
+# --- scripts ---
+echo "📦 Setting up local bin..."
+mkdir -p "$HOME/.local/bin"
+cp -r "$DOTFILES/scripts/bin/"* "$HOME/.local/bin/"
+chmod +x "$HOME/.local/bin/"*
 
-# ----------------------------
-# DIRETÓRIOS USUÁRIO
-# ----------------------------
-echo "📁 Criando diretórios..."
+# --- zsh ---
+echo "🐚 Setting shell configs..."
+cp "$DOTFILES/.zshrc" "$HOME/" 2>/dev/null || true
+cp "$DOTFILES/zshrc" "$HOME/.zshrc" 2>/dev/null || true
 
-mkdir -p ~/.config
-mkdir -p ~/.local/bin
+# --- starship ---
+cp "$DOTFILES/starship.toml" "$HOME/" 2>/dev/null || true
 
-# ----------------------------
-# HYPRLAND
-# ----------------------------
-echo "⚙️ Instalando Hyprland config..."
+# --- hypr ---
+echo "🪟 Hyprland config..."
+mkdir -p "$HOME/.config/hypr"
+cp -r "$DOTFILES/hypr/"* "$HOME/.config/hypr/"
 
-cp -r ./hypr ~/.config/ 2>/dev/null || true
+# --- waybar ---
+echo "📊 Waybar..."
+mkdir -p "$HOME/.config/waybar"
+cp -r "$DOTFILES/waybar/"* "$HOME/.config/waybar/"
 
-# ----------------------------
-# WAYBAR
-# ----------------------------
-echo "⚙️ Instalando Waybar..."
+# --- mako ---
+echo "🔔 Mako..."
+mkdir -p "$HOME/.config/mako"
+cp "$DOTFILES/mako/config" "$HOME/.config/mako/" 2>/dev/null || true
 
-cp -r ./waybar ~/.config/ 2>/dev/null || true
-
-# ----------------------------
-# KITTy / ALACRITTY
-# ----------------------------
-echo "⚙️ Terminais..."
-
-cp -r ./kitty ~/.config/ 2>/dev/null || true
-cp -r ./alacritty ~/.config/ 2>/dev/null || true
-
-# ----------------------------
-# SCRIPTS
-# ----------------------------
-echo "🧠 Instalando scripts..."
-
-cp -r ./scripts/* ~/.local/bin/ 2>/dev/null || true
-chmod +x ~/.local/bin/* 2>/dev/null || true
-
-# ----------------------------
-# SHELL CONFIG
-# ----------------------------
-echo "🐚 Shell config..."
-
-cp .bashrc ~ 2>/dev/null || true
-cp .zshrc ~ 2>/dev/null || true
-
-# ----------------------------
-# CLIPBOARD FIX (teu caso Hyprland)
-# ----------------------------
-echo "📋 Clipboard setup..."
-
-mkdir -p ~/.config/hypr
-
-grep -qxF 'exec-once = wl-paste --type text --watch cliphist store' ~/.config/hypr/hyprland.conf || \
-echo 'exec-once = wl-paste --type text --watch cliphist store' >> ~/.config/hypr/hyprland.conf
-
-grep -qxF 'exec-once = wl-paste --type image --watch cliphist store' ~/.config/hypr/hyprland.conf || \
-echo 'exec-once = wl-paste --type image --watch cliphist store' >> ~/.config/hypr/hyprland.conf
-
-# ----------------------------
-# FINAL
-# ----------------------------
-echo "✅ Setup finalizado!"
-echo "🔁 Reinicia a sessão Hyprland para aplicar tudo"
+echo "✅ Install complete!"
+echo "👉 restart shell or run: source ~/.zshrc"
